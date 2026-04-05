@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://research-eval-protocol.org/spec/v0.1/link.schema.json",
+  "title": "Link",
+  "description": "A typed, directed relationship between two Contributions.",
+  "type": "object",
+  "required": ["source_id", "target_id", "relation", "agent_id"],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "description": "Content-hash ID of the source Contribution."
+    },
+    "target_id": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "description": "Content-hash ID of the target Contribution."
+    },
+    "relation": {
+      "type": "string",
+      "description": "Relation type from the core registry or custom:* namespace.",
+      "oneOf": [
+        {
+          "enum": ["supports", "contradicts", "derives-from", "extends"],
+          "description": "Core v0.1 relations."
+        },
+        {
+          "pattern": "^custom:.+$",
+          "description": "Extension relations in custom: namespace."
+        }
+      ]
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identity of the agent creating this link."
+    }
+  },
+  "additionalProperties": false
+}

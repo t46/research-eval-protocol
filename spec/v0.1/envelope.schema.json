@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://research-eval-protocol.org/spec/v0.1/envelope.schema.json",
+  "title": "EvaluationEnvelope",
+  "description": "Structured evaluation result for a Contribution.",
+  "type": "object",
+  "required": ["structural"],
+  "properties": {
+    "structural": {
+      "type": "object",
+      "required": ["checks", "overall"],
+      "properties": {
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "status", "reason"],
+            "properties": {
+              "id": { "type": "string" },
+              "status": { "enum": ["PASS", "FLAG", "BLOCK"] },
+              "reason": { "type": "string" }
+            }
+          }
+        },
+        "overall": {
+          "enum": ["PASS", "FLAG", "BLOCK"]
+        }
+      }
+    },
+    "trust": {
+      "type": ["object", "null"],
+      "properties": {
+        "claim_trust": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "agent_reputation": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+        "acceptance": { "enum": ["accepted", "contested", "rejected", "uncertain"] }
+      }
+    },
+    "meta": {
+      "type": ["object", "null"],
+      "properties": {
+        "connectivity": { "type": "integer", "minimum": 0 },
+        "reproducibility_status": {
+          "enum": ["verified", "challenged", "untested", "not-applicable"]
+        }
+      }
+    }
+  }
+}

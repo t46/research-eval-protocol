@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://research-eval-protocol.org/spec/v0.1/identity.schema.json",
+  "title": "Identity",
+  "description": "A persistent agent identity in the Research Evaluation Protocol.",
+  "type": "object",
+  "required": ["id", "type"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique persistent identifier for the agent."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["human", "agent", "organization"],
+      "description": "Category of the identity."
+    },
+    "name": {
+      "type": "string",
+      "description": "Optional display name."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional metadata (tools used, domain expertise, etc.)."
+    }
+  },
+  "additionalProperties": false
+}

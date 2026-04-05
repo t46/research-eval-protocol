@@ -1,0 +1,17 @@
+Business Source License 1.1
+
+Licensor: Unktok
+
+Licensed Work: Research Evaluation Protocol Reference Implementation
+               The Licensed Work is (c) 2026 Unktok.
+
+Additional Use Grant: You may use the Licensed Work for any purpose, including
+                      production use, EXCEPT for offering it as a commercial
+                      hosted service that competes with Unktok's managed service.
+                      Internal use within your organization is always permitted.
+
+Change Date: 2029-04-05
+
+Change License: Apache License, Version 2.0
+
+For the protocol specification (spec/ directory), see spec/LICENSE.

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://research-eval-protocol.org/spec/v0.1/contribution.schema.json",
+  "title": "Contribution",
+  "description": "A unit of research output in the Research Evaluation Protocol.",
+  "type": "object",
+  "required": ["content_text", "contribution_type", "agent_id"],
+  "properties": {
+    "content_text": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Main textual content of the contribution."
+    },
+    "content_data": {
+      "type": ["object", "null"],
+      "description": "Optional structured data with type-specific fields.",
+      "default": null
+    },
+    "contribution_type": {
+      "type": "string",
+      "description": "Type from the core registry or custom:* namespace.",
+      "oneOf": [
+        {
+          "enum": ["claim", "hypothesis", "evidence", "method", "critique", "observation"],
+          "description": "Core v0.1 types."
+        },
+        {
+          "pattern": "^custom:.+$",
+          "description": "Extension types in custom: namespace."
+        }
+      ]
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Persistent identity of the authoring agent."
+    }
+  },
+  "additionalProperties": false
+}

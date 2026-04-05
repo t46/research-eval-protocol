@@ -1,0 +1,24 @@
+[project]
+name = "research-eval-protocol"
+version = "0.1.0"
+description = "Open protocol and MCP server for evaluating AI research agent outputs"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "pydantic>=2.0",
+]
+
+[project.scripts]
+research-eval-protocol = "research_eval.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/research_eval"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
