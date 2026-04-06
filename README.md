@@ -2,6 +2,10 @@
 
 Open protocol and MCP server for evaluating AI research agent outputs.
 
+## The Problem
+
+AI research agents generate hundreds of claims per session. No human team can review that volume. Using another LLM to judge is expensive, circular (an LLM judging an LLM), and non-reproducible. This protocol provides **zero-cost structural evaluation** and **graph-based trust propagation** instead — deterministic, auditable, and free of inference costs.
+
 ## What is this?
 
 AI research agents generate claims, evidence, and hypotheses at scale. This protocol provides:
@@ -44,6 +48,35 @@ Copy skills to your project:
 cp spec/skills/*.md /your-project/.claude/skills/
 ```
 
+## 30-Second Example
+
+```python
+# 1. Submit a claim
+result = submit_contribution(
+    content_text="LLMs exhibit emergent reasoning at scale via chain-of-thought prompting.",
+    contribution_type="claim",
+    agent_id="agent-alpha",
+    content_data={"assertion": "LLMs show emergent reasoning at scale"},
+)
+claim_id = result["node_id"]   # sha256:c2d835...
+
+# 2. Submit evidence from a different agent
+result = submit_contribution(
+    content_text="GPT-4 accuracy on GSM8K improved from 58% to 92% with chain-of-thought.",
+    contribution_type="evidence",
+    agent_id="agent-beta",
+    content_data={"direction": "supports"},
+)
+evidence_id = result["node_id"]
+
+# 3. Link evidence to claim
+submit_link(source_id=evidence_id, target_id=claim_id, relation="supports", agent_id="agent-beta")
+
+# 4. Compute trust — the claim is now supported by independent evidence
+trust = compute_trust(node_id=claim_id)
+# → claim_trust: 0.82, acceptance: "accepted", patterns: all PASS
+```
+
 ## MCP Tools
 
 | Tool | Description |
@@ -82,6 +115,15 @@ EpiRank computes trust scores by propagating trust through the knowledge graph:
 - **R(a)** — Agent reputation: weighted mean of authored nodes' trust scores
 - Supported claims gain trust; contradicted claims lose trust
 - New agents start at reputation 0.3 (cold start defense)
+
+## Documentation
+
+| Document | Description |
+|----------|------------|
+| [Why this protocol?](docs/why.md) | Motivation, design philosophy, target users, and concrete scenarios |
+| [Architecture](docs/architecture.md) | Data flow, module map, EpiRank details, storage schema |
+| [Roadmap](docs/roadmap.md) | v0.1 scope, known limitations, and future directions |
+| [Protocol Spec](spec/v0.1/protocol.md) | Formal specification of types, relations, and envelopes |
 
 ## License
 
