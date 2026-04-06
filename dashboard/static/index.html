@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Eval Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Research Evaluation Protocol <span>Dashboard</span></h1>
+    <button id="recompute-btn" onclick="recompute()">Recompute EpiRank</button>
+  </header>
+
+  <div class="stats-bar" id="stats-bar"></div>
+
+  <div class="main-content">
+    <div class="graph-panel" id="graph-panel">
+      <div class="legend" id="legend"></div>
+      <svg id="graph-svg"></svg>
+    </div>
+    <div class="detail-panel empty" id="detail-panel">
+      Click a node to see details
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

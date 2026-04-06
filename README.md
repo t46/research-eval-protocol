@@ -116,6 +116,17 @@ EpiRank computes trust scores by propagating trust through the knowledge graph:
 - Supported claims gain trust; contradicted claims lose trust
 - New agents start at reputation 0.3 (cold start defense)
 
+## Dashboard
+
+A human-facing web UI for visualizing the knowledge graph, trust scores, and pattern detection results.
+
+```bash
+uv run python -m dashboard.app
+# → http://localhost:8080
+```
+
+See [dashboard/README.md](dashboard/README.md) for details.
+
 ## Documentation
 
 | Document | Description |
