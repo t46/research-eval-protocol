@@ -1,0 +1,21 @@
+[     137ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8080/favicon.ico:0
+[  198457ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/nodes/sha256%3Ad890fd4f821ec139f53e5171baaccecaf2ad6b7833a87f62494fcd529971805c:0
+[  198458ms] TypeError: Failed to fetch
+    at selectNode (http://localhost:8080/static/app.js:238:21)
+    at SVGCircleElement.<anonymous> (http://localhost:8080/static/app.js:159:7)
+    at SVGCircleElement.<anonymous> (https://d3js.org/d3.v7.min.js:2:20686)
+[  205392ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/nodes/sha256%3A1060a2316f63e2117be73c61e532157c14d4ff98944a658666b036f92ebdd597:0
+[  205392ms] TypeError: Failed to fetch
+    at selectNode (http://localhost:8080/static/app.js:238:21)
+    at SVGCircleElement.<anonymous> (http://localhost:8080/static/app.js:159:7)
+    at SVGCircleElement.<anonymous> (https://d3js.org/d3.v7.min.js:2:20686)
+[  206416ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/nodes/sha256%3Aa51d0931c94324159f58adac470539582b8b7620bed259f7ef946e2ee3cc490d:0
+[  206417ms] TypeError: Failed to fetch
+    at selectNode (http://localhost:8080/static/app.js:238:21)
+    at SVGCircleElement.<anonymous> (http://localhost:8080/static/app.js:159:7)
+    at SVGCircleElement.<anonymous> (https://d3js.org/d3.v7.min.js:2:20686)
+[  207544ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/nodes/sha256%3Abc618eaed72c2840c7fcfde5a48399225cd196af4b589064095f06e34b0cf168:0
+[  207545ms] TypeError: Failed to fetch
+    at selectNode (http://localhost:8080/static/app.js:238:21)
+    at SVGCircleElement.<anonymous> (http://localhost:8080/static/app.js:159:7)
+    at SVGCircleElement.<anonymous> (https://d3js.org/d3.v7.min.js:2:20686)
